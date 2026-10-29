@@ -1,0 +1,16 @@
+<?php
+
+use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\LoanController;
+use Illuminate\Support\Facades\Route;
+
+Route::redirect('/', '/equipments');
+
+Route::get('/equipments',        [EquipmentController::class, 'index'])->name('equipments.index');
+Route::get('/equipments/create', [EquipmentController::class, 'create'])->name('equipments.create');
+Route::post('/equipments',       [EquipmentController::class, 'store'])->name('equipments.store');
+Route::get('/equipments/{id}',   [EquipmentController::class, 'show'])->name('equipments.show');
+
+Route::get('/loans',        [LoanController::class, 'index'])->name('loans.index');   // Riwayat Peminjaman
+Route::get('/loans/create', [LoanController::class, 'create'])->name('loans.create');
+Route::post('/loans',       [LoanController::class, 'store'])->name('loans.store');
